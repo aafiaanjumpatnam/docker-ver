@@ -20,16 +20,15 @@ A container is a bundle of Application, Application libraries required to run yo
 ## Containers vs Virtual Machine 
 
 Containers and virtual machines are both technologies used to isolate applications and their dependencies, but they have some key differences:
-
+```
     1. Resource Utilization: Containers share the host operating system kernel, making them lighter and faster than VMs. VMs have a full-fledged OS and hypervisor, making them more resource-intensive.
 
     2. Portability: Containers are designed to be portable and can run on any system with a compatible host operating system. VMs are less portable as they need a compatible hypervisor to run.
 
     3. Security: VMs provide a higher level of security as each VM has its own operating system and can be isolated from the host and other VMs. Containers provide less isolation, as they share the host operating system.
-
+    
    4.  Management: Managing containers is typically easier than managing VMs, as containers are designed to be lightweight and fast-moving.
-
-
+```
 
 ## Why are containers light weight ?
 
@@ -144,7 +143,8 @@ Docker Desktop is an easy-to-install application for your Mac, Windows or Linux 
 A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default. You can even run your own private registry.
 
 When you use the docker pull or docker run commands, the required images are pulled from your configured registry. When you use the docker push command, your image is pushed to your configured registry.
-Docker objects
+
+#### Docker objects
 
 When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief overview of some of those objects.
 
@@ -174,7 +174,7 @@ You can create an Ubuntu EC2 Instance on AWS and run the below commands to insta
 
 ```
 sudo apt update
-sudo apt install docker.io -y
+sudo apt install docker.io -y       ## Install Docker
 ```
 
 
@@ -222,12 +222,16 @@ sudo systemctl start docker
 To grant access to your user to run the docker command, you should add the user to the Docker Linux group. Docker group is create by default when docker is installed.
 
 ```
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker $USER
 ```
 
 In the above command `ubuntu` is the name of the user, you can change the username appropriately.
 
-**NOTE:** : You need to logout and login back for the changes to be reflected.
+**NOTE:** : You need to logout and login back for the changes to be reflected. Else, we can run the command "newgrp docker"
+
+```
+“newgrp docker” starts a new shell with docker as the primary group, so you can use Docker immediately without logging out.
+```
 
 
 ### Docker is Installed, up and running 🥳🥳
