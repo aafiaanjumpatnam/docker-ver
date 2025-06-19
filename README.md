@@ -175,7 +175,6 @@ You can create an Ubuntu EC2 Instance on AWS and run the below commands to insta
 ```
 sudo apt update
 sudo apt install docker.io -y       ## Install Docker
-sudo systemctl status docker		## Check for docker status
 ```
 
 
@@ -223,12 +222,16 @@ sudo systemctl start docker
 To grant access to your user to run the docker command, you should add the user to the Docker Linux group. Docker group is create by default when docker is installed.
 
 ```
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker $USER
 ```
 
 In the above command `ubuntu` is the name of the user, you can change the username appropriately.
 
-**NOTE:** : You need to logout and login back for the changes to be reflected.
+**NOTE:** : You need to logout and login back for the changes to be reflected. Else, we can run the command "newgrp docker"
+
+```
+“newgrp docker” starts a new shell with docker as the primary group, so you can use Docker immediately without logging out.
+```
 
 
 ### Docker is Installed, up and running 🥳🥳
