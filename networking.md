@@ -45,7 +45,7 @@ xxxxxxxxxxxx        host                host
 This new network can be attached to the containers, when you run these containers.
 
 ```
-docker run -d --net=my_bridge --name db training/postgres
+docker run -d --network=my_bridge --name db training/postgres
 ```
 
 This way, you can run multiple containers on a single host platform where one container is attached to the default network and 
